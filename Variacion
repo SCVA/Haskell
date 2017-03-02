@@ -1,0 +1,10 @@
+--ghc 7.10
+combinacion :: [Int]->[Int]->[(Int,Int)]
+combinacion [] _ = []
+combinacion (x:xs) y = combinacionsimple x y ++ combinacion (xs) y
+
+combinacionsimple :: Int->[Int]->[(Int,Int)]
+combinacionsimple _ [] = []
+combinacionsimple x (y:ys) = (x, y): combinacionsimple x ys
+
+main = print $ combinacion ([2,3]) ([2,6,8,9,7])
