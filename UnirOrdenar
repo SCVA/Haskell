@@ -1,0 +1,11 @@
+--ghc 7.10
+
+ordenar :: (Ord a) => [a] -> [a]
+ordenar [] = []
+ordenar (x:xs) = ordenar [y | y<-xs, y < x] ++ [ x ] ++ ordenar [y | y<-xs, y >= x]  
+
+unirlista :: [Int]->[Int]->[Int]
+unirlista [] y = ordenar y
+unirlista (x:xs) (y:ys) = unirlista (xs) (x:y:ys)
+
+main = print $ unirlista [3,4,9,1] [5,8,7,9,100]
