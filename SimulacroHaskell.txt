@@ -1,0 +1,31 @@
+sumadigitos :: Int -> [Int]							|
+sumadigitos 0 = []								|
+sumadigitos a = if((mod (mod a 10) (2) )== 0) 					|
+                    then sumadigitos (div a 10)					|
+                    else sumadigitos (div a 10) ++ [mod a 10]			|
+										|
+main = print $ sumadigitos 155							|
+										|
+________________________________________________________________________________|
+										|
+sumadelistas :: [[Int]]->[Int]							|
+sumadelistas [] = []								|
+sumadelistas (x:xs) = [sum x] ++ sumadelistas (xs)				|
+										|
+main = print $ sumadelistas [[5,4,3,8,7],[5,6,3,21,4],[2,5]]			|
+										|
+________________________________________________________________________________|
+										|
+sumadelistas :: [[Int]]->[Int]							|
+sumadelistas x = [sum y | y<-x]							|
+										|
+main = print $ sumadelistas [[5,4,3,8,7],[5,6,3,21,4],[2,5]]			|
+										|
+________________________________________________________________________________|
+										|
+sumadelistas :: [[[Int]]]->[[(Int,Int,Int,Int)]]				|
+sumadelistas p = [([(minimum l,maximum l,sum l,length l) | l<-m]) | m<-p]	|
+										|
+main = print $ sumadelistas [[[1,2,3],[8,9]],[[1,-9,15,20]]]			|
+										|
+________________________________________________________________________________|
